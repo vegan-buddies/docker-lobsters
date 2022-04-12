@@ -58,7 +58,7 @@ RUN set -xe; \
     mv /lobsters/Gemfile.lock /lobsters/Gemfile.lock.bak;
 
 # Copy lobsters into the container.
-COPY ./lobsters ./docker-assets /lobsters/
+COPY ./docker-assets /lobsters/
 
 # Set proper permissions and move assets and configs.
 RUN set -xe; \
@@ -115,5 +115,5 @@ ENV MARIADB_HOST="mariadb" \
 # Expose HTTP port.
 EXPOSE 3000
 
-# Execute our entry script.
+# our Execute entry script.
 CMD ["/usr/local/bin/docker-entrypoint.sh"]

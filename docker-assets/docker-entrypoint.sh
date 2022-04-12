@@ -7,6 +7,8 @@
 # the project as a volume to /lobsters
 # bundle install
 
+cd /app-v/lobsters
+
 # Used for simple logging purposes.
 timestamp="date +\"%Y-%m-%d %H:%M:%S\""
 alias echo="echo \"$(eval $timestamp) -$@\""

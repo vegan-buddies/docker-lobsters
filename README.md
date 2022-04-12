@@ -19,17 +19,14 @@ This will serve up Lobsters at http://localhost/
 git clone git@github.com:utensils/docker-lobsters.git
 cd docker-lobsters
 git submodule update --init --recursive
-make
+cp -r docker-assets/config/* lobsters/config/
+cd lobsters ; sudo chmod -R a+w * ; cd ..
 docker-compose up
 ```
 
-Using the prebuilt docker hub build and official [MariaDB image][mariadb image].  
-This will serve up Lobsters at http://localhost:3000/
+The server will launch at the address http://localhost:3000 
 
-```shell
-docker run --name lobsters -v lobsters_data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=lobsters -d mariadb
-docker run -p 3000:3000 --link lobsters:mariadb utensils/lobsters
-```
+You can make changes to the sourcecode directly and Rails will automatically load them for development.
 
 
 [lobsters]: https://github.com/lobsters/lobsters
